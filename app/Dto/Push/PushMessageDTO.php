@@ -2,7 +2,7 @@
 
 namespace MitinSany\PushCommon\App\Dto\Push;
 
-class PushMessageDTO
+class PushMessageDTO extends BaseDTO
 {
     public ?int $push_message_id = null;
     public ?string $token_provider = null;
@@ -23,10 +23,5 @@ class PushMessageDTO
             'body' => $this->body,
             'options' => $this->options,
         ];
-    }
-
-    public function serialize() : ?string
-    {
-        return json_encode($this->toArray(), JSON_UNESCAPED_UNICODE);
     }
 }
