@@ -5,7 +5,8 @@
         "sort-packages": true
     },
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": ">=7.4",
+        "ext-json": "*",
         "enqueue/amqp-lib": "*"
     },
     "authors": [
@@ -13,5 +14,8 @@
             "name": "Aleksandr Mitin",
             "email": "mitinsoft@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": { "MitinSany\\PushCommon\\App\\": "app" }
+    }
 }
