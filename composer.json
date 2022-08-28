@@ -4,31 +4,9 @@
     "config": {
         "sort-packages": true
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/MitinSany/ZendService_Google_Gcm.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/MitinSany/laravel-huawei-push.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/MitinSany/laravel-push-notification.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/MitinSany/NotificationPusher.git"
-        }
-    ],
     "require": {
         "php": "^7.0 || ^8.0",
-        "enqueue/amqp-lib": "^0.10.9",
-        "zendframework/zendservice-google-gcm": "^2.1",
-        "n2boost/laravel-huawei-push": "dev-master",
-        "davibennun/laravel-push-notification": "^3.0",
-        "sly/notification-pusher": "v3.0.6.2"
+        "enqueue/amqp-lib": "*"
     },
     "authors": [
         {
