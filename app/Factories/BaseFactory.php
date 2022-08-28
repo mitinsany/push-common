@@ -8,14 +8,14 @@ class BaseFactory
 {
     protected const FIELDS = [];
 
-    public static function createFromArray(array $data): PushMessageDTO
+    public static function createFromArray(array $data): BaseFactory
     {
-        $pushMessageDTO = new PushMessageDTO();
+        $dto = new static();
         foreach (static::FIELDS as $key) {
             if (!empty($data[$key])) {
-                $pushMessageDTO->$key = $data[$key];
+                $dto->$key = $data[$key];
             }
         }
-        return $pushMessageDTO;
+        return $dto;
     }
 }
