@@ -6,7 +6,8 @@
     },
     "require": {
         "php": ">=7.4",
-        "ext-json": "*"
+        "ext-json": "*",
+        "enqueue/amqp-lib": "^0.10.9"
     },
     "authors": [
         {
