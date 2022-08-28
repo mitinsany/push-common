@@ -2,13 +2,12 @@
 
 namespace MitinSany\PushCommon\App\Factories;
 
+use MitinSany\PushCommon\App\Dto\Push\BackResultDTO;
+
 /**
- * @method BackResultDTOFactory createFromArray()
+ * @method static createFromArray(array $data): BackResultDTO
  */
 class BackResultDTOFactory extends BaseFactory
 {
-    protected const FIELDS = [
-        'push_message_id',
-        'result',
-    ];
+    protected const TARGET_CLASS = BackResultDTO::class;
 }

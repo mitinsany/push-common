@@ -4,6 +4,16 @@ namespace MitinSany\PushCommon\App\Dto\Push;
 
 class PushMessageDTO extends BaseDTO
 {
+    public const FIELDS = [
+        'push_message_id',
+        'token_provider',
+        'push_token',
+        'bundle_str',
+        'title',
+        'body',
+        'options',
+    ];
+
     public ?int $push_message_id = null;
     public ?string $token_provider = null;
     public ?string $push_token = null;
@@ -12,7 +22,7 @@ class PushMessageDTO extends BaseDTO
     public ?string $body = null;
     public ?array $options = null;
 
-    public function toArray() : array
+    /*public function toArray() : array
     {
         return [
             'push_message_id' => $this->push_message_id,
@@ -23,5 +33,5 @@ class PushMessageDTO extends BaseDTO
             'body' => $this->body,
             'options' => $this->options,
         ];
-    }
+    }*/
 }
