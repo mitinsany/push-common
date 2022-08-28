@@ -4,6 +4,7 @@ namespace MitinSany\PushCommon\App\Dto\Push;
 
 class PushMessageDTO
 {
+    public ?int $push_message_id = null;
     public ?string $token_provider = null;
     public ?string $push_token = null;
     public ?string $bundle_str = null;
@@ -14,6 +15,7 @@ class PushMessageDTO
     public function toArray() : array
     {
         return [
+            'push_message_id' => $this->push_message_id,
             'token_provider' => $this->token_provider,
             'push_token' => $this->push_token,
             'bundle_str' => $this->bundle_str,
