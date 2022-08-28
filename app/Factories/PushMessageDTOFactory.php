@@ -2,8 +2,9 @@
 
 namespace MitinSany\PushCommon\App\Factories;
 
-use MitinSany\PushCommon\App\Dto\Push\PushMessageDTO;
-
+/**
+ * @method PushMessageDTOFactory createFromArray()
+ */
 class PushMessageDTOFactory extends BaseFactory
 {
     protected const FIELDS = [

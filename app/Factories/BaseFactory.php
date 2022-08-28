@@ -2,8 +2,6 @@
 
 namespace MitinSany\PushCommon\App\Factories;
 
-use MitinSany\PushCommon\App\Dto\Push\PushMessageDTO;
-
 class BaseFactory
 {
     protected const FIELDS = [];
