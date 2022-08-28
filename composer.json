@@ -1,6 +1,9 @@
 {
     "name": "mitinsany/push-common",
     "type": "library",
+    "config": {
+        "sort-packages": true
+    },
     "repositories": [
         {
             "type": "vcs",
@@ -20,6 +23,7 @@
         }
     ],
     "require": {
+        "php": "^7.0 || ^8.0",
         "enqueue/amqp-lib": "^0.10.9",
         "zendframework/zendservice-google-gcm": "^2.1",
         "n2boost/laravel-huawei-push": "dev-master",
