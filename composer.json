@@ -16,6 +16,6 @@
         }
     ],
     "autoload": {
-        "psr-4": { "MitinSany\\PushCommon\\App\\": "app" }
+        "psr-4": { "MitinSany\\PushCommon\\": "src" }
     }
 }
