@@ -2,7 +2,6 @@
 
 namespace MitinSany\PushCommon\App\Services;
 
-use MitinSany\PushCommon\App\Enums\AMQPService\QueueNamesEnum;
 use Enqueue\AmqpLib\AmqpConnectionFactory;
 use Enqueue\AmqpLib\AmqpContext;
 use Interop\Amqp\AmqpQueue;
@@ -47,6 +46,11 @@ class AMQPService
             }
             if (!empty($config['flags']['if_empty'])) {
                 $queue->addFlag(AmqpQueue::FLAG_IFEMPTY);
+            }
+            if(!empty($config['consumer_tags'])) {
+                foreach((array)$config['consumer_tags'] as $consumerTag) {
+                    $queue->setConsumerTag($consumerTag);
+                }
             }
             $this->getContext()->declareQueue($queue);
             $this->declaredQueues[$queueName] = $queue;
