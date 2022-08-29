@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MitinSany\PushCommon\Factories;
 
 use MitinSany\PushCommon\Services\AMQPService;
