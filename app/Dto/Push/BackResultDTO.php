@@ -13,6 +13,6 @@ class BackResultDTO extends BaseDTO
         'response',
     ];
 
-    public ?int $message_uuid = null;
+    public ?string $message_uuid = null;
     public ?array $response = null;
 }
