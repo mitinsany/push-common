@@ -6,10 +6,10 @@ namespace MitinSany\PushCommon\App\Dto\Push;
 class BackResultDTO extends BaseDTO
 {
     public const FIELDS = [
-        'push_message_id',
+        'message_uuid',
         'response',
     ];
 
-    public ?int $push_message_id = null;
+    public ?int $message_uuid = null;
     public ?array $response = null;
 }

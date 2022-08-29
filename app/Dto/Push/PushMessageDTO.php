@@ -5,7 +5,7 @@ namespace MitinSany\PushCommon\App\Dto\Push;
 class PushMessageDTO extends BaseDTO
 {
     public const FIELDS = [
-        'push_message_id',
+        'message_uuid',
         'token_provider',
         'push_token',
         'bundle_str',
@@ -14,7 +14,7 @@ class PushMessageDTO extends BaseDTO
         'options',
     ];
 
-    public ?int $push_message_id = null;
+    public ?string $message_uuid = null;
     public ?string $token_provider = null;
     public ?string $push_token = null;
     public ?string $bundle_str = null;
