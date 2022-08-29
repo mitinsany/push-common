@@ -4,15 +4,15 @@ namespace MitinSany\PushCommon\Dto\Push;
 
 /**
  * @property string $message_uuid
- * @property array $response
+ * @property array $result
  */
 class BackResultDTO extends BaseDTO
 {
     public const FIELDS = [
         'message_uuid',
-        'response',
+        'result',
     ];
 
     public ?string $message_uuid = null;
-    public ?array $response = null;
+    public ?array $result = null;
 }
