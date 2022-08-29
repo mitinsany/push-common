@@ -1,6 +1,6 @@
 <?php
 
-namespace MitinSany\PushCommon\App\Enums\AMQPService;
+namespace MitinSany\PushCommon\App\Enums;
 
 class QueueNamesEnum
 {
