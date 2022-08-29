@@ -67,7 +67,7 @@ class AMQPService
             $this->factory = new AmqpConnectionFactory([
                 'host' => config('amqp.host'),
                 'port' => config('amqp.port'),
-                'vhost' => '/',
+                'vhost' => config('amqp.vhost', '/'),
                 'user' => config('amqp.user'),
                 'pass' => config('amqp.password'),
                 'persisted' => false,
@@ -82,16 +82,5 @@ class AMQPService
             $this->context = $this->getFactory()->createContext();
         }
         return $this->context;
-    }
-
-    public function consumeReceive(): void
-    {
-        $queue = $this->declareQueueByConfigName(QueueNamesEnum::PUSH_MESSAGES);
-        $consumer = $this->getContext()->createConsumer($queue);
-        while ($message = $consumer->receive()) {
-            echo $message->getBody() . PHP_EOL;
-            // process a message
-            $consumer->acknowledge($message);
-        }
     }
 }
