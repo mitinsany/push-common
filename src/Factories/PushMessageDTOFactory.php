@@ -1,8 +1,8 @@
 <?php
 
-namespace MitinSany\PushCommon\App\Factories;
+namespace MitinSany\PushCommon\Factories;
 
-use MitinSany\PushCommon\App\Dto\Push\PushMessageDTO;
+use MitinSany\PushCommon\Dto\Push\PushMessageDTO;
 
 /**
  * @method static createFromArray(array $data): PushMessageDTO

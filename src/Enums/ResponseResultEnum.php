@@ -1,6 +1,6 @@
 <?php
 
-namespace MitinSany\PushCommon\App\Enums;
+namespace MitinSany\PushCommon\Enums;
 
 class ResponseResultEnum
 {

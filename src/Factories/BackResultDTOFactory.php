@@ -1,8 +1,8 @@
 <?php
 
-namespace MitinSany\PushCommon\App\Factories;
+namespace MitinSany\PushCommon\Factories;
 
-use MitinSany\PushCommon\App\Dto\Push\BackResultDTO;
+use MitinSany\PushCommon\Dto\Push\BackResultDTO;
 
 /**
  * @method static createFromArray(array $data): BackResultDTO

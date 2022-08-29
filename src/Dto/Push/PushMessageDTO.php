@@ -1,6 +1,6 @@
 <?php
 
-namespace MitinSany\PushCommon\App\Dto\Push;
+namespace MitinSany\PushCommon\Dto\Push;
 
 /**
  * @property string $message_uuid

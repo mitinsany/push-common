@@ -1,6 +1,6 @@
 <?php
 
-namespace MitinSany\PushCommon\App\Services;
+namespace MitinSany\PushCommon\Services;
 
 use Enqueue\AmqpLib\AmqpConnectionFactory;
 use Enqueue\AmqpLib\AmqpContext;
