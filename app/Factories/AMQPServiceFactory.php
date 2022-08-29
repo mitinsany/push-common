@@ -1,6 +1,8 @@
 <?php
 
-namespace MitinSany\PushCommon\App\Services;
+namespace MitinSany\PushCommon\App\Factories;
+
+use MitinSany\PushCommon\App\Services\AMQPService;
 
 class AMQPServiceFactory
 {

@@ -15,30 +15,6 @@ class AMQPService
     private AmqpContext $context;
 
     /**
-     * @return AbstractConnection
-     *
-    protected function getConnection(): AbstractConnection
-    {
-        if (empty($this->connection)) {
-            $this->connection = new AMQPStreamConnection(
-                config('amqp.host'),
-                config('amqp.port'),
-                config('amqp.user'),
-                config('amqp.password')
-            );
-        }
-        return $this->connection;
-    }
-
-    public function getChannel(): AbstractChannel
-    {
-        if (empty($this->channel)) {
-            $this->channel = $this->getConnection()->channel();
-        }
-        return $this->channel;
-    }*/
-
-    /**
      * @param string $queueName
      * @return AmqpQueue
      */
