@@ -3,13 +3,13 @@
 namespace MitinSany\PushCommon\App\Dto\Push;
 
 /**
- * @property string message_uuid
- * @property string token_provider
- * @property string push_token
- * @property string bundle_str
- * @property string title
- * @property string body
- * @property array options
+ * @property string $message_uuid
+ * @property string $token_provider
+ * @property string $push_token
+ * @property string $bundle_str
+ * @property string $title
+ * @property string $body
+ * @property array $options
  */
 class PushMessageDTO extends BaseDTO
 {
