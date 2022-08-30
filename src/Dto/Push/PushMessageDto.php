@@ -5,7 +5,7 @@ namespace MitinSany\PushCommon\Dto\Push;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * @PushMessageDTO
+ * @PushMessageDto
  *
  * @property-read string message_uuid;
  * @property-read string token_provider;
@@ -15,7 +15,7 @@ use Spatie\DataTransferObject\DataTransferObject;
  * @property-read string body;
  * @property-read array options;
  */
-class PushMessageDTO extends DataTransferObject
+class PushMessageDto extends DataTransferObject
 {
     public string $message_uuid;
     public string $token_provider;

@@ -7,12 +7,12 @@ namespace MitinSany\PushCommon\Dto\Push;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * @BackResultDTO
+ * @BackResultDto
  *
  * @property-read string message_uuid
  * @property-read string result
  */
-class BackResultDTO extends DataTransferObject
+class BackResultDto extends DataTransferObject
 {
     public string $message_uuid;
     public string $result;
