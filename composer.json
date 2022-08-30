@@ -7,7 +7,8 @@
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
-        "enqueue/amqp-lib": "*"
+        "enqueue/amqp-lib": "*",
+        "spatie/data-transfer-object": "*"
     },
     "authors": [
         {
