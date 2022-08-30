@@ -1,6 +1,6 @@
 <?php
 
-namespace MitinSany\PushCommon\Enums;
+namespace MitinSany\PushCommon\Enums\TransportTypes;
 
 class SourceTransportTypesEnum
 {

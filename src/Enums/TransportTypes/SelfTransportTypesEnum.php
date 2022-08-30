@@ -1,8 +1,8 @@
 <?php
 
-namespace MitinSany\PushCommon\Enums;
+namespace MitinSany\PushCommon\Enums\TransportTypes;
 
-class OwnTransportTypesEnum
+class SelfTransportTypesEnum
 {
     // firebase notification service
     public const FNS = 'fns';

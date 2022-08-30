@@ -2,16 +2,16 @@
 
 namespace MitinSany\PushCommon\Services;
 
-use MitinSany\PushCommon\Enums\SourceTransportTypesEnum;
-use MitinSany\PushCommon\Enums\OwnTransportTypesEnum;
+use MitinSany\PushCommon\Enums\TransportTypes\SelfTransportTypesEnum;
+use MitinSany\PushCommon\Enums\TransportTypes\SourceTransportTypesEnum;
 use MitinSany\PushCommon\Exceptions\UnknownServiceException;
 
 class TransportMappingService
 {
     private const SOURCE_OWN_MAPPING = [
-        SourceTransportTypesEnum::GCM => OwnTransportTypesEnum::FNS,
-        SourceTransportTypesEnum::APNS => OwnTransportTypesEnum::ANS,
-        SourceTransportTypesEnum::HMS => OwnTransportTypesEnum::HNS,
+        SourceTransportTypesEnum::GCM => SelfTransportTypesEnum::FNS,
+        SourceTransportTypesEnum::APNS => SelfTransportTypesEnum::ANS,
+        SourceTransportTypesEnum::HMS => SelfTransportTypesEnum::HNS,
     ];
 
     /**
