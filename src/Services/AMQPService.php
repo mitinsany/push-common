@@ -7,9 +7,12 @@ namespace MitinSany\PushCommon\Services;
 use Enqueue\AmqpLib\AmqpConnectionFactory;
 use Enqueue\AmqpLib\AmqpContext;
 use Interop\Amqp\AmqpQueue;
+use WildWolf\Utils\Singleton;
 
 class AMQPService
 {
+    use Singleton;
+
     protected array $declaredQueues = [];
 
     private AmqpConnectionFactory $factory;
