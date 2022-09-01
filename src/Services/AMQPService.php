@@ -52,10 +52,8 @@ class AMQPService
             if (!empty($config['flags']['if_empty'])) {
                 $queue->addFlag(AmqpQueue::FLAG_IFEMPTY);
             }
-            if(!empty($config['consumer_tags'])) {
-                foreach((array)$config['consumer_tags'] as $consumerTag) {
-                    $queue->setConsumerTag($consumerTag);
-                }
+            if (!empty($config['consumer_tag'])) {
+                $queue->setConsumerTag($config['consumer_tag']);
             }
             $this->getContext()->declareQueue($queue);
             $this->declaredQueues[$queueName] = $queue;
@@ -63,7 +61,7 @@ class AMQPService
         return $this->declaredQueues[$queueName];
     }
 
-    public function send(string $queueName, string $data)
+    public function sendToQueue(string $queueName, string $data)
     {
         $queue = $this->declareQueueByConfigName($queueName);
         $message = $this->getContext()->createMessage($data);
@@ -79,7 +77,7 @@ class AMQPService
                 'vhost' => config('amqp.vhost', '/'),
                 'user' => config('amqp.user'),
                 'pass' => config('amqp.password'),
-                'persisted' => false,
+                'persisted' => config('amqp.persisted'),
             ]);
         }
         return $this->factory;
@@ -91,5 +89,20 @@ class AMQPService
             $this->context = $this->getFactory()->createContext();
         }
         return $this->context;
+    }
+
+    public function consume(string $queueName, callable $callback): void
+    {
+        $queue = $this->declareQueueByConfigName($queueName);
+        $consumer = $this->getContext()->createConsumer($queue);
+        $tag = config('amqp.consumers.' . $queueName);
+        if (!empty($tag)) {
+            $consumer->setConsumerTag($tag);
+        }
+
+        while ($message = $consumer->receive()) {
+            $callback($message);
+            $consumer->acknowledge($message);
+        }
     }
 }
