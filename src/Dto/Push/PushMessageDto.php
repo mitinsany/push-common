@@ -8,20 +8,20 @@ use Spatie\DataTransferObject\DataTransferObject;
  * @PushMessageDto
  *
  * @property-read string message_uuid;
- * @property-read string token_provider;
+ * @property-read string transport_type;
  * @property-read string push_token;
  * @property-read string bundle_str;
  * @property-read string title;
- * @property-read string body;
- * @property-read array options;
+ * @property-read string description;
+ * @property-read array data;
  */
 class PushMessageDto extends DataTransferObject
 {
     public string $message_uuid;
-    public string $token_provider;
+    public string $transport_type;
     public string $push_token;
     public string $bundle_str;
     public string $title;
-    public string $body;
-    public array $options;
+    public string $description;
+    public array $data;
 }
