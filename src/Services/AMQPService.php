@@ -7,13 +7,18 @@ namespace MitinSany\PushCommon\Services;
 use Enqueue\AmqpLib\AmqpConnectionFactory;
 use Enqueue\AmqpLib\AmqpContext;
 use Interop\Amqp\AmqpQueue;
+use Interop\Queue\Consumer;
+use Interop\Queue\Exception;
+use Interop\Queue\Exception\InvalidDestinationException;
+use Interop\Queue\Exception\InvalidMessageException;
 use WildWolf\Utils\Singleton;
 
 class AMQPService
 {
     use Singleton;
 
-    protected array $declaredQueues = [];
+    private array $consumers = [];
+    private array $declaredQueues = [];
 
     private AmqpConnectionFactory $factory;
     private AmqpContext $context;
@@ -52,22 +57,32 @@ class AMQPService
             if (!empty($config['flags']['if_empty'])) {
                 $queue->addFlag(AmqpQueue::FLAG_IFEMPTY);
             }
-            if (!empty($config['consumer_tag'])) {
-                $queue->setConsumerTag($config['consumer_tag']);
-            }
             $this->getContext()->declareQueue($queue);
             $this->declaredQueues[$queueName] = $queue;
         }
         return $this->declaredQueues[$queueName];
     }
 
+    /**
+     * @param string $queueName
+     * @param string $data
+     * @return void
+     * @throws Exception
+     * @throws \Interop\Queue\Exception\Exception
+     * @throws InvalidDestinationException
+     * @throws InvalidMessageException
+     */
     public function sendToQueue(string $queueName, string $data)
     {
         $queue = $this->declareQueueByConfigName($queueName);
         $message = $this->getContext()->createMessage($data);
+        $message->setContentType('application/json');
         $this->getContext()->createProducer()->send($queue, $message);
     }
 
+    /**
+     * @return AmqpConnectionFactory
+     */
     public function getFactory(): AmqpConnectionFactory
     {
         if (empty($this->factory)) {
@@ -83,6 +98,9 @@ class AMQPService
         return $this->factory;
     }
 
+    /**
+     * @return AmqpContext
+     */
     public function getContext(): AmqpContext
     {
         if (empty($this->context)) {
@@ -91,14 +109,28 @@ class AMQPService
         return $this->context;
     }
 
-    public function consume(string $queueName, callable $callback): void
+    /**
+     * @param AmqpContext $context
+     * @param string $queueName
+     * @return Consumer
+     */
+    public function getConsumer(AmqpContext $context, string $queueName): Consumer
     {
         $queue = $this->declareQueueByConfigName($queueName);
-        $consumer = $this->getContext()->createConsumer($queue);
-        $tag = config('amqp.consumers.' . $queueName);
-        if (!empty($tag)) {
-            $consumer->setConsumerTag($tag);
+        if (empty($this->consumers[$queueName])) {
+            $this->consumers[$queueName] = $context->createConsumer($queue);
         }
+        return $this->consumers[$queueName];
+    }
+
+    /**
+     * @param string $queueName
+     * @param callable $callback
+     * @return void
+     */
+    public function consume(string $queueName, callable $callback): void
+    {
+        $consumer = $this->getConsumer($this->getContext(), $queueName);
 
         while ($message = $consumer->receive()) {
             $callback($message);
