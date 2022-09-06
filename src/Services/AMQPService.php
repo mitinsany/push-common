@@ -133,8 +133,8 @@ class AMQPService
         $consumer = $this->getConsumer($this->getContext(), $queueName);
 
         while ($message = $consumer->receive()) {
-            $callback($message);
             $consumer->acknowledge($message);
+            $callback($message);
         }
     }
 }
