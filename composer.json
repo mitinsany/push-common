@@ -1,6 +1,7 @@
 {
     "name": "mitinsany/push-common",
     "type": "library",
+    "license": "MIT",
     "config": {
         "sort-packages": true
     },
