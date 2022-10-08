@@ -12,6 +12,7 @@
         "spatie/data-transfer-object": "*",
         "wildwolf/singleton-trait": "^1.0"
     },
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Aleksandr Mitin",
