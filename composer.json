@@ -6,12 +6,11 @@
         "sort-packages": true
     },
     "require": {
-        "php": ">=7.4",
+        "php": "^7.4",
         "ext-json": "*",
         "enqueue/amqp-lib": "*",
         "nikitakodo/enqueue-wrapper": "dev-main",
-        "spatie/data-transfer-object": "*",
-        "wildwolf/singleton-trait": "^1.0"
+        "spatie/data-transfer-object": "*"
     },
     "minimum-stability": "dev",
     "authors": [
