@@ -21,7 +21,7 @@ class PushMessageDto extends DataTransferObject
     public string $transport_type;
     public string $push_token;
     public string $bundle_str;
-    public string $title;
-    public string $description;
+    public ?string $title = null;
+    public ?string $description = null;
     public array $data;
 }
