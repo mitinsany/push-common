@@ -6,7 +6,7 @@
         "sort-packages": true
     },
     "require": {
-        "php": "^7.4",
+        "php": ">=7.4",
         "ext-json": "*",
         "enqueue/amqp-lib": "*",
         "spatie/data-transfer-object": "*"
